@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Fleet - BISECH Tours & Car Hire</title>
+    <meta name="description" content="Explore our modern, well-maintained fleet of vehicles perfect for city transfers and rugged safaris across Tanzania.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚗</text></svg>">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Same CSS as index.html */
+        :root {
+            --primary: #0f766e;
+            --primary-light: #14b8a6;
+            --primary-dark: #0d5d57;
+            --secondary: #f59e0b;
+            --accent: #dc2626;
+            --text: #0f172a;
+            --text-light: #475569;
+            --text-muted: #64748b;
+            --bg: #f8fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --radius: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            background-color: var(--bg);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 0.5rem;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-family: 'Playfair Display', serif;
+        }
+
+        h2 {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            margin-bottom: 1.5rem;
+            position: relative;
+            font-family: 'Playfair Display', serif;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+        }
+
+        h4 {
+            font-size: 1.25rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header p {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            outline: none;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-large {
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+        }
+
+        .card {
+            background: var(--card);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-primary {
+            background: rgba(15, 118, 110, 0.1);
+            color: var(--primary);
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 1.5rem;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .brand-logo {
+            width: 150px;
+            height: auto;
+        }
+
+        .nav-desktop {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-desktop ul {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-desktop a {
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+            position: relative;
+        }
+
+        .nav-desktop a:hover {
+            color: white;
+        }
+
+        .nav-desktop a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: white;
+            transition: var(--transition);
+        }
+
+        .nav-desktop a:hover:after {
+            width: 100%;
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .mobile-menu {
+            display: none;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 1rem;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 0.75rem 0;
+            color: white;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-menu a:last-child {
+            border-bottom: none;
+        }
+
+        /* Page Hero */
+        .page-hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1592841200221-7ef6f5c78c6d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
+            color: white;
+            padding: 6rem 0;
+            text-align: center;
+        }
+
+        .page-hero h1 {
+            margin-bottom: 1rem;
+        }
+
+        .page-hero p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Fleet Grid */
+        .fleet-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .fleet-card {
+            overflow: hidden;
+        }
+
+        .fleet-image {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .fleet-content {
+            padding: 1.5rem;
+        }
+
+        .fleet-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .feature i {
+            color: var(--primary);
+        }
+
+        .vehicle-type {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: rgba(15, 118, 110, 0.1);
+            color: var(--primary);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        /* Fleet Categories */
+        .fleet-categories {
+            background: rgba(15, 118, 110, 0.05);
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .category-card {
+            padding: 2rem;
+            text-align: center;
+            border-top: 4px solid var(--primary);
+        }
+
+        .category-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(15, 118, 110, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: var(--primary);
+            font-size: 1.75rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            color: white;
+        }
+
+        .cta-section h2:after {
+            background: white;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand h3 {
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-links h4 {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .footer-links h4:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        .footer-links ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-desktop {
+                display: none;
+            }
+            
+            .mobile-toggle {
+                display: block;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section {
+                padding: 3rem 0;
+            }
+            
+            .fleet-grid,
+            .categories-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container container">
+            <div class="brand">
+                 <img src="image/1.png" alt="BISECH Logo" class="brand-logo">
+            </div>
+
+            <nav class="nav-desktop">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="fleet.html" style="color: white;">Fleet</a></li>
+                    <li><a href="packages.html">Packages</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <a href="booking.html" class="btn btn-secondary">Book Now</a>
+            </nav>
+
+            <button class="mobile-toggle" id="mobileToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="fleet.html" style="color: white;">Fleet</a>
+            <a href="packages.html">Packages</a>
+            <a href="contact.html">Contact</a>
+            <a href="booking.html" class="btn btn-primary" style="margin-top: 1rem; display: block; text-align: center;">Book Now</a>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Our Fleet</h1>
+            <p>Modern, well-maintained vehicles suitable for city transfers and rugged safaris across Tanzania's diverse terrain.</p>
+        </div>
+    </section>
+
+    <!-- Fleet Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Vehicle Selection</h2>
+                <p>Choose from our diverse range of vehicles, each maintained to the highest standards for your comfort and safety.</p>
+            </div>
+            <div class="fleet-grid">
+                <div class="card fleet-card fade-in">
+                    <div class="fleet-image" style="background-image: url('https://images.unsplash.com/photo-1592841200221-7ef6f5c78c6d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');"></div>
+                    <div class="fleet-content">
+                        <span class="vehicle-type">Safari Vehicle</span>
+                        <h3>Toyota Land Cruiser</h3>
+                        <p>Ideal for safaris — roomy, comfortable and reliable for Tanzania's diverse terrain. Perfect for game drives and long-distance travel.</p>
+                        <div class="fleet-features">
+                            <div class="feature">
+                                <i class="fas fa-users"></i>
+                                <span>6-7 passengers</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-snowflake"></i>
+                                <span>Air conditioned</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-suitcase"></i>
+                                <span>Ample luggage space</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Comprehensive insurance</span>
+                            </div>
+                        </div>
+                        <a href="booking.html" class="btn btn-primary" style="margin-top: 1rem;">Book This Vehicle</a>
+                    </div>
+                </div>
+                
+                <div class="card fleet-card fade-in">
+                    <div class="fleet-image" style="background-image: url('https://images.unsplash.com/photo-1632855802119-5098f80e7f2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');"></div>
+                    <div class="fleet-content">
+                        <span class="vehicle-type">Group Transport</span>
+                        <h3>Toyota Hiace</h3>
+                        <p>Perfect for group transfers, airport shuttles, and corporate transportation needs. Comfortable and spacious for longer journeys.</p>
+                        <div class="fleet-features">
+                            <div class="feature">
+                                <i class="fas fa-users"></i>
+                                <span>12 passengers</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-suitcase"></i>
+                                <span>Luggage space</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-snowflake"></i>
+                                <span>Air conditioned</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-tv"></i>
+                                <span>Entertainment system</span>
+                            </div>
+                        </div>
+                        <a href="booking.html" class="btn btn-primary" style="margin-top: 1rem;">Book This Vehicle</a>
+                    </div>
+                </div>
+                
+                <div class="card fleet-card fade-in">
+                    <div class="fleet-image" style="background-image: url('https://images.unsplash.com/photo-1621330396175-af1a02b46d2b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');"></div>
+                    <div class="fleet-content">
+                        <span class="vehicle-type">Utility Vehicle</span>
+                        <h3>Pickup Trucks</h3>
+                        <p>Versatile vehicles for light cargo, logistics support, and off-road transportation. Ideal for both urban and rural environments.</p>
+                        <div class="fleet-features">
+                            <div class="feature">
+                                <i class="fas fa-truck-loading"></i>
+                                <span>Cargo capacity</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-mountain"></i>
+                                <span>Off-road capable</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-users"></i>
+                                <span>5 passengers</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-gas-pump"></i>
+                                <span>Fuel efficient</span>
+                            </div>
+                        </div>
+                        <a href="booking.html" class="btn btn-primary" style="margin-top: 1rem;">Book This Vehicle</a>
+                    </div>
+                </div>
+                
+                <div class="card fleet-card fade-in">
+                    <div class="fleet-image" style="background-image: url('https://images.unsplash.com/photo-1555215695-3004980ad54e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');"></div>
+                    <div class="fleet-content">
+                        <span class="vehicle-type">Executive Transport</span>
+                        <h3>Executive Sedans</h3>
+                        <p>Luxury sedans for business travel, airport transfers, and special occasions. Professional drivers and premium comfort.</p>
+                        <div class="fleet-features">
+                            <div class="feature">
+                                <i class="fas fa-users"></i>
+                                <span>3-4 passengers</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-snowflake"></i>
+                                <span>Climate control</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-wifi"></i>
+                                <span>WiFi available</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-briefcase"></i>
+                                <span>Business amenities</span>
+                            </div>
+                        </div>
+                        <a href="booking.html" class="btn btn-primary" style="margin-top: 1rem;">Book This Vehicle</a>
+                    </div>
+                </div>
+                
+                <div class="card fleet-card fade-in">
+                    <div class="fleet-image" style="background-image: url('https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');"></div>
+                    <div class="fleet-content">
+                        <span class="vehicle-type">Family Vehicle</span>
+                        <h3>Family SUVs</h3>
+                        <p>Spacious SUVs perfect for family vacations, offering comfort, safety, and ample space for luggage and equipment.</p>
+                        <div class="fleet-features">
+                            <div class="feature">
+                                <i class="fas fa-users"></i>
+                                <span>7-8 passengers</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-child"></i>
+                                <span>Child seat compatible</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-suitcase"></i>
+                                <span>Large cargo area</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Safety features</span>
+                            </div>
+                        </div>
+                        <a href="booking.html" class="btn btn-primary" style="margin-top: 1rem;">Book This Vehicle</a>
+                    </div>
+                </div>
+                
+                <div class="card fleet-card fade-in">
+                    <div class="fleet-image" style="background-image: url('https://images.unsplash.com/photo-1563720223485-41b7e8e26e88?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');"></div>
+                    <div class="fleet-content">
+                        <span class="vehicle-type">Cargo Vehicle</span>
+                        <h3>Cargo Vans</h3>
+                        <p>Reliable cargo vans for business logistics, moving, and transportation of goods with secure storage and tracking.</p>
+                        <div class="fleet-features">
+                            <div class="feature">
+                                <i class="fas fa-warehouse"></i>
+                                <span>Large cargo space</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-lock"></i>
+                                <span>Secure storage</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>GPS tracking</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-tools"></i>
+                                <span>Loading equipment</span>
+                            </div>
+                        </div>
+                        <a href="booking.html" class="btn btn-primary" style="margin-top: 1rem;">Book This Vehicle</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fleet Categories Section -->
+    <section class="section fleet-categories">
+        <div class="container">
+            <div class="section-header">
+                <h2>Vehicle Categories</h2>
+                <p>Our fleet is organized into categories to help you find the perfect vehicle for your specific needs.</p>
+            </div>
+            <div class="categories-grid">
+                <div class="card category-card fade-in">
+                    <div class="category-icon">
+                        <i class="fas fa-safari"></i>
+                    </div>
+                    <h3>Safari Vehicles</h3>
+                    <p>Specially equipped for game drives and national park visits with pop-up roofs and comfortable seating.</p>
+                </div>
+                
+                <div class="card category-card fade-in">
+                    <div class="category-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Group Transport</h3>
+                    <p>Spacious vehicles perfect for families, tour groups, and corporate teams traveling together.</p>
+                </div>
+                
+                <div class="card category-card fade-in">
+                    <div class="category-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>Executive Cars</h3>
+                    <p>Luxury vehicles for business travelers, special occasions, and premium airport transfers.</p>
+                </div>
+                
+                <div class="card category-card fade-in">
+                    <div class="category-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Cargo & Utility</h3>
+                    <p>Versatile vehicles for logistics, moving, and transportation of goods and equipment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Need a Specific Vehicle?</h2>
+                <p>Contact us to discuss your specific vehicle requirements and we'll find the perfect solution for you.</p>
+            </div>
+            <div class="hero-buttons">
+                <a href="contact.html" class="btn btn-secondary btn-large">Contact Us</a>
+                <a href="booking.html" class="btn btn-primary btn-large">Book Vehicle</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>BISECH Company Limited</h3>
+                    <p>Your trusted partner for tours, car hire, and transportation services in Tanzania. Experience the beauty of Tanzania with our professional and reliable services.</p>
+                    <div class="social-links" style="margin-top: 1.5rem;">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="services.html">Car Hire</a></li>
+                        <li><a href="services.html">Safaris & Tours</a></li>
+                        <li><a href="services.html">Airport Transfers</a></li>
+                        <li><a href="services.html">Cargo Transport</a></li>
+                        <li><a href="packages.html">Tour Packages</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="fleet.html">Our Fleet</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="booking.html">Book Now</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="contact.html">Help Center</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div>
+                    <p>&copy; 2025 BISECH Company Limited. All rights reserved.</p>
+                </div>
+                <div>
+                    <p>P.O. Box 71990, Dar es Salaam, Tanzania</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        });
+        
+        // Fade in animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInOnScroll = () => {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Set initial state for fade elements
+        fadeElements.forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        });
+        
+        window.addEventListener('scroll', fadeInOnScroll);
+        window.addEventListener('load', fadeInOnScroll);
+    </script>
+</body>
+</html>

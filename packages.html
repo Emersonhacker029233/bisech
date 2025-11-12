@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Packages - BISECH Tours & Car Hire</title>
+    <meta name="description" content="Discover our exclusive Tanzania tour packages including wildlife safaris, beach holidays, and mountain expeditions.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚗</text></svg>">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Same CSS as index.html */
+        :root {
+            --primary: #0f766e;
+            --primary-light: #14b8a6;
+            --primary-dark: #0d5d57;
+            --secondary: #f59e0b;
+            --accent: #dc2626;
+            --text: #0f172a;
+            --text-light: #475569;
+            --text-muted: #64748b;
+            --bg: #f8fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --radius: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            background-color: var(--bg);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 0.5rem;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-family: 'Playfair Display', serif;
+        }
+
+        h2 {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            margin-bottom: 1.5rem;
+            position: relative;
+            font-family: 'Playfair Display', serif;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+        }
+
+        h4 {
+            font-size: 1.25rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header p {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            outline: none;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-large {
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+        }
+
+        .card {
+            background: var(--card);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-primary {
+            background: rgba(15, 118, 110, 0.1);
+            color: var(--primary);
+        }
+
+        .badge-popular {
+            background: var(--secondary);
+            color: white;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 1.5rem;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .brand-logo {
+            width: 150px;
+            height: auto;
+        }
+
+        .nav-desktop {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-desktop ul {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-desktop a {
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+            position: relative;
+        }
+
+        .nav-desktop a:hover {
+            color: white;
+        }
+
+        .nav-desktop a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: white;
+            transition: var(--transition);
+        }
+
+        .nav-desktop a:hover:after {
+            width: 100%;
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .mobile-menu {
+            display: none;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 1rem;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 0.75rem 0;
+            color: white;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-menu a:last-child {
+            border-bottom: none;
+        }
+
+        /* Page Hero */
+        .page-hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
+            color: white;
+            padding: 6rem 0;
+            text-align: center;
+        }
+
+        .page-hero h1 {
+            margin-bottom: 1rem;
+        }
+
+        .page-hero p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Packages Grid */
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .package-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--radius);
+        }
+
+        .package-image {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .package-content {
+            padding: 1.5rem;
+        }
+
+        .package-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 1rem 0;
+        }
+
+        .package-features {
+            margin: 1.5rem 0;
+        }
+
+        .package-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .package-feature i {
+            color: var(--secondary);
+        }
+
+        .package-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            z-index: 2;
+        }
+
+        /* Package Categories */
+        .package-categories {
+            background: rgba(15, 118, 110, 0.05);
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .category-card {
+            padding: 2rem;
+            text-align: center;
+            border-top: 4px solid var(--primary);
+        }
+
+        .category-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(15, 118, 110, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: var(--primary);
+            font-size: 1.75rem;
+        }
+
+        /* Custom Package Section */
+        .custom-package {
+            background: var(--primary);
+            color: white;
+        }
+
+        .custom-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .custom-content h2 {
+            color: white;
+        }
+
+        .custom-content h2:after {
+            background: white;
+        }
+
+        .custom-form {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: var(--radius);
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: white;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border-radius: var(--radius);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.9);
+            font-family: inherit;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: white;
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+        }
+
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand h3 {
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-links h4 {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .footer-links h4:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        .footer-links ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .custom-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-desktop {
+                display: none;
+            }
+            
+            .mobile-toggle {
+                display: block;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section {
+                padding: 3rem 0;
+            }
+            
+            .packages-grid,
+            .categories-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container container">
+            <div class="brand">
+                 <img src="image/1.png" alt="BISECH Logo" class="brand-logo">
+            </div>
+
+            <nav class="nav-desktop">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="fleet.html">Fleet</a></li>
+                    <li><a href="packages.html" style="color: white;">Packages</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <a href="booking.html" class="btn btn-secondary">Book Now</a>
+            </nav>
+
+            <button class="mobile-toggle" id="mobileToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="fleet.html">Fleet</a>
+            <a href="packages.html" style="color: white;">Packages</a>
+            <a href="contact.html">Contact</a>
+            <a href="booking.html" class="btn btn-primary" style="margin-top: 1rem; display: block; text-align: center;">Book Now</a>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Tour Packages</h1>
+            <p>Discover Tanzania's wonders with our carefully crafted tour packages, designed to create unforgettable experiences.</p>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Packages</h2>
+                <p>Choose from our selection of popular Tanzania experiences, each designed to showcase the best of this beautiful country.</p>
+            </div>
+            <div class="packages-grid">
+                <div class="card package-card fade-in">
+                    <div class="package-badge">
+                        <span class="badge badge-popular">Most Popular</span>
+                    </div>
+                    <div class="package-image" style="background-image: url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');"></div>
+                    <div class="package-content">
+                        <h3>Wildlife Safari Adventure</h3>
+                        <p>Experience the best of Tanzania's wildlife with visits to Serengeti, Ngorongoro, and Tarangire National Parks.</p>
+                        <div class="package-features">
+                            <div class="package-feature">
+                                <i class="fas fa-check"></i>
+                                <span>5 days / 4 nights</span>
+                            </div>
+                            <div class="package-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Game drives in multiple parks</span>
+                            </div>
+                            <div class="package-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Lodge accommodation</span>
+                            </div>
+                            <div class="package-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Professional guide</span>
+                            </div>
+                            <div class="package-feature">
+                                <i class="fas fa-check"></i>
+                                <span>All meals included</span>
+                            </div>
+                        </div>
+                        <div class="package-price">From TZS 2,500,000</div>
+                        <a href="booking.html" class="btn btn-primary">Book This Package</a>
+                    </div>
+                </div>
+                
+                <div class="card package-card fade-in">
+                    <div class="package-image" style="background-image: url('https://images.unsplash.com/photo-1589553409327-1d81bb13c68d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2068&q=80');"></div>
+                    <div class="package-content">
+                        <h3>Zanzibar Beach Escape</h3>
+                        <p>Relaxing beach stay with spice tours, Stone Town exploration, and snorkeling in pristine waters.</p>
+                        <div class="package-features">
+                            <div class="package-feature">
+                                <i class="fas fa-check"></i>
+                                <span>4 days / 3 nights</span>
+                            </div>
+                            <div class="package-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Beachfront accommodation</span>
+                            </div>
+                            <div class="package-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Spice tour & Stone Town</span>
+                            </div>
+                            <div class="package-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Snorkeling trip included</span>
+                            </div>
+                            <div class="package-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Breakfast included</span>
+                            </div>
+                        </div>
+                        <div class="package-price">From TZS 1,200,000</div>
+                        <a href="booking.html" class="btn btn-primary">Book This Package</a>
+                    </div>
+                </div>
+                
+                <div class="card package-card fade-in">
+                    <div class="package-badge">
+                        <span class="badge badge-primary">Adventure</span>
+                    </div>
+                    <div class="package-image" style="background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');"></div>
+                    <div class="package-content">
+                        <h3>Kilimanjaro Trekking Expedition</h3>
+                        <p>Challenge yourself with a guided trek to the roof of Africa, with all logistics and support included.</p>
+                        <div class="package-features">
+                            <div class="package-feature">
+                                <i class="fas fa-check"></i>
+                                <span>7 days / 6 nights</span>
+                            </div>
+                            <div class="package-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Experienced mountain guides</span>
+                            </div>
+                            <div class="package-feature">
+                                <i class="fas fa-check"></i>
+                                <span>All camping equipment</span>
+                            </div>
+                            <div class="package-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Porters and cook included</span>
+                            </div>
+                            <div class="package-feature">
+                                <i class="fas fa-check"></i>
+                                <span>All meals on the mountain</span>
+                            </div>
+                        </div>
+                        <div class="package-price">From TZS 3,800,000</div>
+                        <a href="booking.html" class="btn btn-primary">Book This Package</a>
+                    </div>
+                </div>
+                
+                <div class="card package-card fade-in">
+                    <div class="package-image" style="background-image: url('https://images.unsplash.com/photo-1516426122078-c23e76319801?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2068&q=80');"></div>
+                    <div class="package-content">
+                        <h3>Northern Circuit Safari</h3>
+                        <p>Comprehensive safari covering Serengeti, Ngorongoro, Lake Manyara, and Tarangire National Parks.</p>
+                        <div class="package-features">
+                            <div class="package-feature">
+                                <i class="fas fa-check"></i>
+                                <span>7 days / 6 nights</span>
+                            </div>
+                            <div class="package-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Four national parks</span>
+                            </div>
+                            <div class="package-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Lodge and camp accommodation</span>
+                            </div>
+                            <div class="package-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Professional safari guide</span>
+                            </div>
+                            <div class="package-feature">
+                                <i class="fas fa-check"></i>
+                                <span>All meals included</span>
+                            </div>
+                        </div>
+                        <div class="package-price">From TZS 3,200,000</div>
+                        <a href="booking.html" class="btn btn-primary">Book This Package</a>
+                    </div>
+                </div>
+                
+                <div class="card package-card fade-in">
+                    <div class="package-badge">
+                        <span class="badge badge-primary">Cultural</span>
+                    </div>
+                    <div class="package-image" style="background-image: url('https://images.unsplash.com/photo-1523805009345-7448845a9e53?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80');"></div>
+                    <div class="package-content">
+                        <h3>Cultural Heritage Tour</h3>
+                        <p>Immerse yourself in Tanzania's rich cultural heritage with visits to historical sites and local communities.</p>
+                        <div class="package-features">
+                            <div class="package-feature">
+                                <i class="fas fa-check"></i>
+                                <span>5 days / 4 nights</span>
+                            </div>
+                            <div class="package-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Historical site visits</span>
+                            </div>
+                            <div class="package-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Local community interactions</span>
+                            </div>
+                            <div class="package-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Traditional meals</span>
+                            </div>
+                            <div class="package-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Cultural performances</span>
+                            </div>
+                        </div>
+                        <div class="package-price">From TZS 1,800,000</div>
+                        <a href="booking.html" class="btn btn-primary">Book This Package</a>
+                    </div>
+                </div>
+                
+                <div class="card package-card fade-in">
+                    <div class="package-image" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');"></div>
+                    <div class="package-content">
+                        <h3>Family Adventure Package</h3>
+                        <p>Perfect family vacation with child-friendly activities, comfortable accommodation, and flexible scheduling.</p>
+                        <div class="package-features">
+                            <div class="package-feature">
+                                <i class="fas fa-check"></i>
+                                <span>6 days / 5 nights</span>
+                            </div>
+                            <div class="package-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Family-friendly lodges</span>
+                            </div>
+                            <div class="package-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Child-focused activities</span>
+                            </div>
+                            <div class="package-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Flexible itinerary</span>
+                            </div>
+                            <div class="package-feature">
+                                <i class="fas fa-check"></i>
+                                <span>All meals included</span>
+                            </div>
+                        </div>
+                        <div class="package-price">From TZS 2,800,000</div>
+                        <a href="booking.html" class="btn btn-primary">Book This Package</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Package Categories Section -->
+    <section class="section package-categories">
+        <div class="container">
+            <div class="section-header">
+                <h2>Package Categories</h2>
+                <p>Find the perfect experience based on your interests and travel preferences.</p>
+            </div>
+            <div class="categories-grid">
+                <div class="card category-card fade-in">
+                    <div class="category-icon">
+                        <i class="fas fa-safari"></i>
+                    </div>
+                    <h3>Wildlife Safaris</h3>
+                    <p>Game drives and wildlife viewing in Tanzania's famous national parks and conservation areas.</p>
+                </div>
+                
+                <div class="card category-card fade-in">
+                    <div class="category-icon">
+                        <i class="fas fa-umbrella-beach"></i>
+                    </div>
+                    <h3>Beach Holidays</h3>
+                    <p>Relaxing coastal getaways to Zanzibar and other beautiful beach destinations in Tanzania.</p>
+                </div>
+                
+                <div class="card category-card fade-in">
+                    <div class="category-icon">
+                        <i class="fas fa-mountain"></i>
+                    </div>
+                    <h3>Mountain Climbing</h3>
+                    <p>Challenging expeditions to Mount Kilimanjaro and other spectacular mountains in Tanzania.</p>
+                </div>
+                
+                <div class="card category-card fade-in">
+                    <div class="category-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Cultural Tours</h3>
+                    <p>Immerse yourself in Tanzania's rich cultural heritage and traditional ways of life.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom Package Section -->
+    <section class="section custom-package">
+        <div class="container custom-container">
+            <div class="custom-content fade-in">
+                <h2>Customize Your Package</h2>
+                <p>Can't find exactly what you're looking for? Let us create a custom package tailored to your specific interests, budget, and schedule.</p>
+                <div style="margin-top: 2rem;">
+                    <div class="package-feature">
+                        <i class="fas fa-check" style="color: white;"></i>
+                        <span style="color: white;">Personalized itinerary</span>
+                    </div>
+                    <div class="package-feature">
+                        <i class="fas fa-check" style="color: white;"></i>
+                        <span style="color: white;">Flexible dates</span>
+                    </div>
+                    <div class="package-feature">
+                        <i class="fas fa-check" style="color: white;"></i>
+                        <span style="color: white;">Budget options</span>
+                    </div>
+                    <div class="package-feature">
+                        <i class="fas fa-check" style="color: white;"></i>
+                        <span style="color: white;">Special requirements accommodated</span>
+                    </div>
+                </div>
+            </div>
+            <div class="custom-form fade-in">
+                <h3 style="text-align: center; margin-bottom: 1.5rem; color: white;">Request Custom Package</h3>
+                <form id="customPackage" onsubmit="submitCustomPackage(event)">
+                    <div class="form-group">
+                        <label for="customName">Full Name</label>
+                        <input type="text" class="form-control" id="customName" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="customEmail">Email Address</label>
+                        <input type="email" class="form-control" id="customEmail" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="customInterests">Travel Interests</label>
+                        <select class="form-control" id="customInterests">
+                            <option>Wildlife Safari</option>
+                            <option>Beach Holiday</option>
+                            <option>Mountain Climbing</option>
+                            <option>Cultural Experience</option>
+                            <option>Combination</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="customDuration">Preferred Duration</label>
+                        <select class="form-control" id="customDuration">
+                            <option>3-5 days</option>
+                            <option>6-8 days</option>
+                            <option>9-12 days</option>
+                            <option>13+ days</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="customMessage">Special Requirements</label>
+                        <textarea class="form-control" id="customMessage" placeholder="Tell us about your specific requirements..." rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-secondary" style="width: 100%; background: white; color: var(--primary);">Request Custom Quote</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>BISECH Company Limited</h3>
+                    <p>Your trusted partner for tours, car hire, and transportation services in Tanzania. Experience the beauty of Tanzania with our professional and reliable services.</p>
+                    <div class="social-links" style="margin-top: 1.5rem;">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="services.html">Car Hire</a></li>
+                        <li><a href="services.html">Safaris & Tours</a></li>
+                        <li><a href="services.html">Airport Transfers</a></li>
+                        <li><a href="services.html">Cargo Transport</a></li>
+                        <li><a href="packages.html">Tour Packages</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="fleet.html">Our Fleet</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="booking.html">Book Now</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="contact.html">Help Center</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div>
+                    <p>&copy; 2025 BISECH Company Limited. All rights reserved.</p>
+                </div>
+                <div>
+                    <p>P.O. Box 71990, Dar es Salaam, Tanzania</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        });
+        
+        // Form submission handlers
+        function submitCustomPackage(e) {
+            e.preventDefault();
+            alert('Thank you! Your custom package request has been received. We will contact you shortly with a personalized quote.');
+            document.getElementById('customPackage').reset();
+        }
+        
+        // Fade in animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInOnScroll = () => {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Set initial state for fade elements
+        fadeElements.forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        });
+        
+        window.addEventListener('scroll', fadeInOnScroll);
+        window.addEventListener('load', fadeInOnScroll);
+    </script>
+</body>
+</html>
