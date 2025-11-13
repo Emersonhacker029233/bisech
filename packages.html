@@ -228,8 +228,16 @@
         }
 
         .brand-logo {
-            width: 150px;
+            width: 120px;
             height: auto;
+        }
+
+        .company-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .nav-desktop {
@@ -541,6 +549,32 @@
             transform: translateY(-3px);
         }
 
+        /* WhatsApp Numbers Section */
+        .whatsapp-numbers {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .whatsapp-number {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius);
+            transition: var(--transition);
+        }
+
+        .whatsapp-number:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .whatsapp-number i {
+            color: #25D366;
+        }
+
         /* Animations */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
@@ -581,6 +615,18 @@
                 flex-direction: column;
                 text-align: center;
             }
+            
+            .brand-logo {
+                width: 100px;
+            }
+            
+            .company-name {
+                font-size: 1.25rem;
+            }
+            
+            .whatsapp-numbers {
+                flex-direction: column;
+            }
         }
 
         @media (max-width: 480px) {
@@ -592,6 +638,14 @@
             .categories-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .brand-logo {
+                width: 90px;
+            }
+            
+            .company-name {
+                font-size: 1.1rem;
+            }
         }
     </style>
 </head>
@@ -600,7 +654,10 @@
     <header>
         <div class="header-container container">
             <div class="brand">
-                 <img src="image/1.png" alt="BISECH Logo" class="brand-logo">
+                <a href="index.html">
+                    <img src="image/1.png" alt="BISECH Logo" class="brand-logo">
+                </a>
+                <span class="company-name">BISECH</span>
             </div>
 
             <nav class="nav-desktop">
@@ -675,7 +732,7 @@
                                 <span>All meals included</span>
                             </div>
                         </div>
-                        <div class="package-price">From TZS 2,500,000</div>
+                        <div class="package-price"></div>
                         <a href="booking.html" class="btn btn-primary">Book This Package</a>
                     </div>
                 </div>
@@ -707,7 +764,7 @@
                                 <span>Breakfast included</span>
                             </div>
                         </div>
-                        <div class="package-price">From TZS 1,200,000</div>
+                        <div class="package-price"></div>
                         <a href="booking.html" class="btn btn-primary">Book This Package</a>
                     </div>
                 </div>
@@ -742,7 +799,7 @@
                                 <span>All meals on the mountain</span>
                             </div>
                         </div>
-                        <div class="package-price">From TZS 3,800,000</div>
+                        <div class="package-price"></div>
                         <a href="booking.html" class="btn btn-primary">Book This Package</a>
                     </div>
                 </div>
@@ -774,7 +831,7 @@
                                 <span>All meals included</span>
                             </div>
                         </div>
-                        <div class="package-price">From TZS 3,200,000</div>
+                        <div class="package-price"></div>
                         <a href="booking.html" class="btn btn-primary">Book This Package</a>
                     </div>
                 </div>
@@ -809,7 +866,7 @@
                                 <span>Cultural performances</span>
                             </div>
                         </div>
-                        <div class="package-price">From TZS 1,800,000</div>
+                        <div class="package-price"></div>
                         <a href="booking.html" class="btn btn-primary">Book This Package</a>
                     </div>
                 </div>
@@ -841,7 +898,7 @@
                                 <span>All meals included</span>
                             </div>
                         </div>
-                        <div class="package-price">From TZS 2,800,000</div>
+                        <div class="package-price"></div>
                         <a href="booking.html" class="btn btn-primary">Book This Package</a>
                     </div>
                 </div>
@@ -859,7 +916,7 @@
             <div class="categories-grid">
                 <div class="card category-card fade-in">
                     <div class="category-icon">
-                        <i class="fas fa-safari"></i>
+                        <i class="fas fa-binoculars"></i>
                     </div>
                     <h3>Wildlife Safaris</h3>
                     <p>Game drives and wildlife viewing in Tanzania's famous national parks and conservation areas.</p>
@@ -965,16 +1022,16 @@
                     <h3>BISECH Company Limited</h3>
                     <p>Your trusted partner for tours, car hire, and transportation services in Tanzania. Experience the beauty of Tanzania with our professional and reliable services.</p>
                     <div class="social-links" style="margin-top: 1.5rem;">
-                        <a href="#" class="social-link">
+                        <a href="https://www.facebook.com/share/1GwAJnJiUo/" class="social-link" target="_blank">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="#" class="social-link">
+                        <a href="https://www.instagram.com/bisechtour?igsh=MW9xOGFiZmlocWE1Mg==" class="social-link" target="_blank">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#" class="social-link">
-                            <i class="fab fa-twitter"></i>
+                        <a href="https://www.linkedin.com/posts/bisech-tour-company_bisechtour-linkedin-activity-7366071093658374147-ahgq?utm_source=share&utm_medium=member_android&rcm=ACoAAC4UDyYBoYM0egEgsqaYbmTLh40iTWvk2qM" class="social-link" target="_blank">
+                            <i class="fab fa-linkedin-in"></i>
                         </a>
-                        <a href="#" class="social-link">
+                        <a href="https://wa.me/255718420969?text=Hello%20BISECH%2C%20I'm%20interested%20in%20your%20services.%20Can%20you%20provide%20more%20information%3F" class="social-link" target="_blank">
                             <i class="fab fa-whatsapp"></i>
                         </a>
                     </div>
